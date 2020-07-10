@@ -26,7 +26,8 @@ contract DistributeRewards is Withdrawable {
 
         if (token == ETH_TOKEN_ADDRESS) {
             require(address(this).balance >= amount, "eth amount required > balance");
-            winner.transfer(amount);
+            (bool success, ) = winner.call{value: amount}("");
+            require(success, "send to winner failed");
         } else {
             require(token.balanceOf(address(this)) >= amount, "token amount required > balance");
             token.safeTransfer(winner, amount);
