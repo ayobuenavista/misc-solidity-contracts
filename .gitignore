@@ -42,5 +42,8 @@ jspm_packages
 # OS file
 .DS_Store
 
+# env
+.env
+
 # solidity
 bin
