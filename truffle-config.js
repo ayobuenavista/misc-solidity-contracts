@@ -8,7 +8,7 @@ module.exports = {
   // to customize your Truffle configuration!
   networks: {
     development: {
-      provider: new HDWalletProvider(mnemonic, 'http://localhost:8545', 0, 10),
+      provider: () => new HDWalletProvider(mnemonic, 'http://localhost:8545', 0, 10),
       host: '127.0.0.1',
       port: 8545,
       network_id: 5777,
@@ -19,7 +19,7 @@ module.exports = {
       skipDryRun: true,
     },
     kovan: {
-      provider: new HDWalletProvider(
+      provider: () => new HDWalletProvider(
         mnemonic,
         `https://kovan.infura.io/v3/${process.env.INFURA}`,
         0,
@@ -34,7 +34,7 @@ module.exports = {
       skipDryRun: false,
     },
     rinkeby: {
-      provider: new HDWalletProvider(
+      provider: () => new HDWalletProvider(
         mnemonic,
         `https://rinkeby.infura.io/v3/${process.env.INFURA}`,
         0,
@@ -49,7 +49,7 @@ module.exports = {
       skipDryRun: false,
     },
     ropsten: {
-      provider: new HDWalletProvider(
+      provider: () => new HDWalletProvider(
         mnemonic,
         `https://ropsten.infura.io/v3/${process.env.INFURA}`,
         0,
@@ -64,12 +64,12 @@ module.exports = {
       skipDryRun: false,
     },
     mainnet: {
-      provider: new HDWalletProvider(mnemonic, 'http://localhost:8545', 0, 10),
+      provider: () => new HDWalletProvider(mnemonic, 'http://localhost:8545', 0, 10),
       host: '127.0.0.1',
       port: 8545,
       network_id: 1,
-      gas: 2000000,
-      gasPrice: 2100000000,
+      gas: 1500000,
+      gasPrice: 44000000000,
       confirmations: 0,
       timeoutBlocks: 500,
       skipDryRun: false,
